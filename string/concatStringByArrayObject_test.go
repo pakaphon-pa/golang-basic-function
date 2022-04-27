@@ -19,7 +19,7 @@ var DataList = []Product{
 }
 
 func TestConcatNameProduct(t *testing.T) {
-	result := ConCatStringByArrayObject(DataList, ",")
+	result := ConCatStringProductname(DataList, ",")
 	expected := "PC,PS5,Xbox"
 	assert.Equal(t, expected, result)
 }
