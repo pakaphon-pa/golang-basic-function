@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"golangUtility/goroutine"
+)
 
 func main() {
-	fmt.Println("GO UTILITY")
+	goroutine.Channel()
 }
