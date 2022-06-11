@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	goroutine.MutiGoroutine()
+	goroutine.BufferedChannel()
 }
