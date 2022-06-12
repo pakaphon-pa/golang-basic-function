@@ -1,9 +1,9 @@
 package main
 
 import (
-	"golangUtility/goroutine"
+	"golangUtility/concurrency"
 )
 
 func main() {
-	goroutine.BufferedChannel()
+	concurrency.SequentialProcessing()
 }
