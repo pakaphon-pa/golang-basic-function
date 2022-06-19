@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	concurrency.SequentialProcessing()
+	concurrency.ConcurrencyProcessing()
 }

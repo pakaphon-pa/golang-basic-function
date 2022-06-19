@@ -9,7 +9,10 @@ func ConcurrencyProcessing() {
 
 	usersCh := make(chan []*User)
 	unvisitedUsers := make(chan *User)
-	go func() { usersCh <- users }()
+	go func() {
+		fmt.Println("1st")
+		usersCh <- users
+	}()
 	initializeWorkers(unvisitedUsers, usersCh, users)
 	processUsers(unvisitedUsers, usersCh, len(users))
 }
@@ -17,9 +20,11 @@ func ConcurrencyProcessing() {
 func initializeWorkers(unvisitedUsers <-chan *User, usersCh chan []*User, users []*User) {
 	for i := 0; i < MAX_GOROUTINES; i++ {
 		go func() {
+			fmt.Println("2nd")
 			for user := range unvisitedUsers {
 				SendSmsNotification(user)
 				go func(user *User) {
+					fmt.Println("3rd")
 					friendIds := user.FriendIds
 					friends := []*User{}
 					for _, friendId := range friendIds {
@@ -41,6 +46,7 @@ func initializeWorkers(unvisitedUsers <-chan *User, usersCh chan []*User, users 
 }
 
 func processUsers(unvisitedUsers chan<- *User, usersCh chan []*User, size int) {
+	fmt.Println("4th")
 	visitedUsers := make(map[string]bool)
 	count := 0
 	for users := range usersCh {

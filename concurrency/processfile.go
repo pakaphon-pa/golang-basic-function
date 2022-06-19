@@ -12,7 +12,7 @@ import (
 var count = 1
 
 func ProcessFile() []*User {
-	f, err := os.Open("./students.csv")
+	f, err := os.Open("concurrency/students2.csv")
 
 	if err != nil {
 		log.Fatal(err)
