@@ -6,4 +6,5 @@ https://levelup.gitconnected.com/concurrency-in-golang-goroutines-and-channels-e
 
 
 
+install sonar-scanner 
 sonarQube : docker run --name sonarqube -p 9000:9000 sonarqube
