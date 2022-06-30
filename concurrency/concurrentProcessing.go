@@ -2,7 +2,7 @@ package concurrency
 
 import "fmt"
 
-const MAX_GOROUTINES = 10
+const MAX_GOROUTINES = 2
 
 func ConcurrencyProcessing() {
 	users := ProcessFile()
@@ -20,8 +20,8 @@ func ConcurrencyProcessing() {
 func initializeWorkers(unvisitedUsers <-chan *User, usersCh chan []*User, users []*User) {
 	for i := 0; i < MAX_GOROUTINES; i++ {
 		go func() {
-			fmt.Println("2nd")
 			for user := range unvisitedUsers {
+				fmt.Println("2nd")
 				SendSmsNotification(user)
 				go func(user *User) {
 					fmt.Println("3rd")
